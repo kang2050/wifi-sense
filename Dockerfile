@@ -18,7 +18,7 @@ ARG VITE_API_BASE=http://xww8okkg0wcg40c0ogcw88ko.76.13.31.179.sslip.io
 ENV VITE_WS_URL=$VITE_WS_URL
 ENV VITE_API_BASE=$VITE_API_BASE
 
-RUN pnpm build
+RUN pnpm exec vite build
 
 # ---- Serve Stage ----
 FROM nginx:alpine
