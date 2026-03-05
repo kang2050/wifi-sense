@@ -1,0 +1,18 @@
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8765:8765"
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: .
+      args:
+        VITE_WS_URL: ${VITE_WS_URL:-ws://localhost:8765/ws}
+        VITE_API_BASE: ${VITE_API_BASE:-http://localhost:8765}
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
