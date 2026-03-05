@@ -11,9 +11,9 @@ RUN pnpm install --frozen-lockfile
 
 COPY . .
 
-# Build args passed at build time (for Coolify env injection)
-ARG VITE_WS_URL
-ARG VITE_API_BASE
+# Build args — defaults point to the Coolify-deployed backend
+ARG VITE_WS_URL=ws://q4goc00g0s8g8g4gco4cs48w.76.13.31.179.sslip.io/ws
+ARG VITE_API_BASE=http://q4goc00g0s8g8g4gco4cs48w.76.13.31.179.sslip.io
 ENV VITE_WS_URL=$VITE_WS_URL
 ENV VITE_API_BASE=$VITE_API_BASE
 
